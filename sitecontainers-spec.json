@@ -1,0 +1,22 @@
+[
+  {
+    "name": "chat-api",
+    "properties": {
+      "image": "acrsidecar7b0601af.azurecr.io/chat-api:v1",
+      "targetPort": "8080",
+      "isMain": true,
+      "authType": "UserAssigned",
+      "userManagedIdentityClientId": "461f5478-0240-4180-97c2-d4c33aeee31e"
+    }
+  },
+  {
+    "name": "model-server",
+    "properties": {
+      "image": "acrsidecar7b0601af.azurecr.io/model-server:v1",
+      "targetPort": "11434",
+      "isMain": false,
+      "authType": "UserAssigned",
+      "userManagedIdentityClientId": "461f5478-0240-4180-97c2-d4c33aeee31e"
+    }
+  }
+]

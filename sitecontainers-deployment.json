@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2024-04-01",
+      "name": "app-ai-sidecar-7b0601af",
+      "location": "West US 3",
+      "kind": "app,linux",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/d78a60a0-8e7f-4133-9b07-8613217db5e4/resourcegroups/sidecar/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-sidecar-7b0601af": {}
+        }
+      },
+      "properties": {
+        "serverFarmId": "/subscriptions/d78a60a0-8e7f-4133-9b07-8613217db5e4/resourceGroups/sidecar/providers/Microsoft.Web/serverfarms/plan-ai-sidecar-7b0601af",
+        "reserved": true,
+        "httpsOnly": false,
+        "siteConfig": {
+          "linuxFxVersion": "sitecontainers",
+          "alwaysOn": true,
+          "acrUseManagedIdentityCreds": true
+        }
+      }
+    }
+  ]
+}
